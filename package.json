@@ -1,7 +1,7 @@
 {
-  "name": "ajax-call-synchronizer",
+  "name": "auto-complete",
   "version": "1.0.0",
-  "description": "A function that provides debounce, request singulation, response cache in one package.",
+  "description": "An auto-complete plugin that unlike Input-Wizard depends upon external controls for selection.",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
