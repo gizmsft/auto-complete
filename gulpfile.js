@@ -1,6 +1,6 @@
 const { src, dest } = require('gulp');
 const uglifyPlugin = require('gulp-uglify');
-const renamePlugin = require('gulp-rename');
+const concatPlugin = require('gulp-concat');
 
 var copyJsTask = function (callback) {
     src('./lib/*.js')
@@ -10,11 +10,11 @@ var copyJsTask = function (callback) {
 }
 
 var minifyJsTask = function (callback) {
-    src('./lib/*.js')
+    src([
+        'node_modules/ajax-call-synchronizer/dist/js/ajax-call-synchronizer.min.js',
+        './lib/*.js'])
         .pipe(uglifyPlugin())
-        .pipe(renamePlugin(function (path) {
-            path.basename += '.min';
-        }))
+        .pipe(concatPlugin('auto-complete.min.js'))
         .pipe(dest('./dist/js'));
 
     callback();
